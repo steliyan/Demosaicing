@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{086EEC85-126D-48A3-B2FD-235B18F25E09}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Demosaicing</RootNamespace>
+    <AssemblyName>Demosaicing</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Main.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowGeometry.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageEditing\ImageEditing.csproj">
+      <Project>{864D5FEA-E114-4D58-804F-F03FA35EF8BE}</Project>
+      <Name>ImageEditing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\About.ico" />
+    <Content Include="Main.ico" />
+    <Content Include="Resources\Icons\AboutBox.png" />
+    <Content Include="Resources\Icons\Bayer.ico" />
+    <Content Include="Resources\Icons\Browse.ico" />
+    <Content Include="Resources\Icons\Bulb.ico" />
+    <Content Include="Resources\Icons\Demosaic.ico" />
+    <Content Include="Resources\Icons\Down.ico" />
+    <Content Include="Resources\Icons\Error.ico" />
+    <Content Include="Resources\Icons\Grayscale.ico" />
+    <Content Include="Resources\Icons\Info.ico" />
+    <Content Include="Resources\Icons\Left.ico" />
+    <Content Include="Resources\Icons\Main.ico" />
+    <None Include="Resources\Icons\OK.ico" />
+    <Content Include="Resources\Icons\Pattern.ico" />
+    <Content Include="Resources\Icons\Right.ico" />
+    <Content Include="Resources\Icons\Save.ico" />
+    <Content Include="Resources\Icons\Up.ico" />
+    <Content Include="Resources\Icons\Zoom.ico" />
+    <Content Include="Resources\Images\color\IM001.tif" />
+    <Content Include="Resources\Images\color\IM002.tif" />
+    <Content Include="Resources\Images\color\IM003.tif" />
+    <Content Include="Resources\Images\color\IM004.tif" />
+    <Content Include="Resources\Images\color\IM005.tif" />
+    <Content Include="Resources\Images\color\IM006.tif" />
+    <Content Include="Resources\Images\color\IM007.tif" />
+    <Content Include="Resources\Images\color\IM008.tif" />
+    <Content Include="Resources\Images\color\IM009.tif" />
+    <Content Include="Resources\Images\color\IM010.tif" />
+    <Content Include="Resources\Images\color\IM011.tif" />
+    <Content Include="Resources\Images\color\IM012.tif" />
+    <Content Include="Resources\Images\color\IM013.tif" />
+    <Content Include="Resources\Images\color\IM014.tif" />
+    <Content Include="Resources\Images\color\IM015.tif" />
+    <Content Include="Resources\Images\color\IM016.tif" />
+    <Content Include="Resources\Images\color\IM017.tif" />
+    <Content Include="Resources\Images\color\IM018.tif" />
+    <Content Include="Resources\Images\color\IM019.tif" />
+    <Content Include="Resources\Images\color\IM020.tif" />
+    <Content Include="Resources\Images\color\IM021.tif" />
+    <Content Include="Resources\Images\color\IM022.tif" />
+    <Content Include="Resources\Images\color\IM023.tif" />
+    <Content Include="Resources\Images\color\IM024.tif" />
+    <Content Include="Resources\Images\color\IM025.tif" />
+    <Content Include="Resources\Images\color\IM026.tif" />
+    <Content Include="Resources\Images\color\IM027.tif" />
+    <Content Include="Resources\Images\color\IM028.tif" />
+    <Content Include="Resources\Images\color\IM029.tif" />
+    <Content Include="Resources\Images\color\IM030.tif" />
+    <Content Include="Resources\Images\color\IM031.tif" />
+    <Content Include="Resources\Images\color\IM032.tif" />
+    <Content Include="Resources\Images\color\IM033.tif" />
+    <Content Include="Resources\Images\color\IM034.tif" />
+    <Content Include="Resources\Images\color\IM035.tif" />
+    <Content Include="Resources\Images\color\IM036.tif" />
+    <Content Include="Resources\Images\color\IM037.tif" />
+    <Content Include="Resources\Images\color\IM038.tif" />
+    <Content Include="Resources\Images\color\IM039.tif" />
+    <Content Include="Resources\Images\color\IM040.tif" />
+    <Content Include="Resources\Images\color\IM041.tif" />
+    <Content Include="Resources\Images\color\IM042.tif" />
+    <Content Include="Resources\Images\color\IM043.tif" />
+    <Content Include="Resources\Images\color\IM044.tif" />
+    <Content Include="Resources\Images\color\IM045.tif" />
+    <Content Include="Resources\Images\color\IM046.tif" />
+    <Content Include="Resources\Images\color\IM047.tif" />
+    <Content Include="Resources\Images\color\IM048.tif" />
+    <Content Include="Resources\Images\color\IM049.tif" />
+    <Content Include="Resources\Images\color\IM050.tif" />
+    <Content Include="Resources\Images\color\IM051.tif" />
+    <Content Include="Resources\Images\color\IM052.tif" />
+    <Content Include="Resources\Images\color\IM053.tif" />
+    <Content Include="Resources\Images\color\IM054.tif" />
+    <Content Include="Resources\Images\color\IM055.tif" />
+    <Content Include="Resources\Images\color\IM056.tif" />
+    <Content Include="Resources\Images\color\IM057.tif" />
+    <Content Include="Resources\Images\color\IM058.tif" />
+    <Content Include="Resources\Images\color\IM059.tif" />
+    <Content Include="Resources\Images\color\IM060.tif" />
+    <Content Include="Resources\Images\color\IM061.tif" />
+    <Content Include="Resources\Images\color\IM062.tif" />
+    <Content Include="Resources\Images\color\IM063.tif" />
+    <Content Include="Resources\Images\color\IM064.tif" />
+    <Content Include="Resources\Images\color\IM065.tif" />
+    <Content Include="Resources\Images\color\IM066.tif" />
+    <Content Include="Resources\Images\color\IM067.tif" />
+    <Content Include="Resources\Images\color\IM068.tif" />
+    <Content Include="Resources\Images\color\IM069.tif" />
+    <Content Include="Resources\Images\color\IM070.tif" />
+    <Content Include="Resources\Images\color\IM071.tif" />
+    <Content Include="Resources\Images\color\IM072.tif" />
+    <Content Include="Resources\Images\color\IM073.tif" />
+    <Content Include="Resources\Images\color\IM074.tif" />
+    <Content Include="Resources\Images\color\IM075.tif" />
+    <Content Include="Resources\Images\color\IM076.tif" />
+    <Content Include="Resources\Images\color\IM077.tif" />
+    <Content Include="Resources\Images\color\IM078.tif" />
+    <Content Include="Resources\Images\color\IM079.tif" />
+    <Content Include="Resources\Images\color\IM080.tif" />
+    <Content Include="Resources\Images\color\IM081.tif" />
+    <Content Include="Resources\Images\color\IM082.tif" />
+    <Content Include="Resources\Images\color\IM083.tif" />
+    <Content Include="Resources\Images\color\IM084.tif" />
+    <Content Include="Resources\Images\color\IM085.tif" />
+    <Content Include="Resources\Images\color\IM086.tif" />
+    <Content Include="Resources\Images\color\IM087.tif" />
+    <Content Include="Resources\Images\color\IM088.tif" />
+    <Content Include="Resources\Images\color\IM089.tif" />
+    <Content Include="Resources\Images\color\IM090.tif" />
+    <Content Include="Resources\Images\color\IM091.tif" />
+    <Content Include="Resources\Images\color\IM092.tif" />
+    <Content Include="Resources\Images\color\IM093.tif" />
+    <Content Include="Resources\Images\color\IM094.tif" />
+    <Content Include="Resources\Images\color\IM095.tif" />
+    <Content Include="Resources\Images\color\IM096.tif" />
+    <Content Include="Resources\Images\color\IM097.tif" />
+    <Content Include="Resources\Images\color\IM098.tif" />
+    <Content Include="Resources\Images\color\IM099.tif" />
+    <Content Include="Resources\Images\color\IM100.tif" />
+    <Content Include="Resources\Images\color\IM101.tif" />
+    <Content Include="Resources\Images\color\IM102.tif" />
+    <Content Include="Resources\Images\color\IM103.tif" />
+    <Content Include="Resources\Images\color\IM104.tif" />
+    <Content Include="Resources\Images\color\IM105.tif" />
+    <Content Include="Resources\Images\color\IM106.tif" />
+    <Content Include="Resources\Images\color\IM107.tif" />
+    <Content Include="Resources\Images\color\IM108.tif" />
+    <Content Include="Resources\Images\color\IM109.tif" />
+    <Content Include="Resources\Images\color\IM110.tif" />
+    <Content Include="Resources\Images\color\IM111.tif" />
+    <Content Include="Resources\Images\color\IM112.tif" />
+    <Content Include="Resources\Images\color\IM113.tif" />
+    <Content Include="Resources\Images\color\IM114.tif" />
+    <Content Include="Resources\Images\color\IM115.tif" />
+    <Content Include="Resources\Images\color\IM116.tif" />
+    <Content Include="Resources\Images\color\IM117.tif" />
+    <Content Include="Resources\Images\color\IM118.tif" />
+    <Content Include="Resources\Images\color\IM119.tif" />
+    <Content Include="Resources\Images\color\IM120.tif" />
+    <Content Include="Resources\Images\color\IM121.tif" />
+    <Content Include="Resources\Images\color\IM122.tif" />
+    <Content Include="Resources\Images\color\IM123.tif" />
+    <Content Include="Resources\Images\color\IM124.tif" />
+    <Content Include="Resources\Images\color\IM125.tif" />
+    <Content Include="Resources\Images\color\IM126.tif" />
+    <Content Include="Resources\Images\color\IM127.tif" />
+    <Content Include="Resources\Images\color\IM128.tif" />
+    <Content Include="Resources\Images\color\IM129.tif" />
+    <Content Include="Resources\Images\color\IM130.tif" />
+    <Content Include="Resources\Images\color\IM131.tif" />
+    <Content Include="Resources\Images\color\IM132.tif" />
+    <Content Include="Resources\Images\color\IM133.tif" />
+    <Content Include="Resources\Images\color\IM134.tif" />
+    <Content Include="Resources\Images\color\IM135.tif" />
+    <Content Include="Resources\Images\color\IM136.tif" />
+    <Content Include="Resources\Images\color\IM137.tif" />
+    <Content Include="Resources\Images\color\IM138.tif" />
+    <Content Include="Resources\Images\color\IM139.tif" />
+    <Content Include="Resources\Images\color\IM140.tif" />
+    <Content Include="Resources\Images\color\IM141.tif" />
+    <Content Include="Resources\Images\color\IM142.tif" />
+    <Content Include="Resources\Images\color\IM143.tif" />
+    <Content Include="Resources\Images\color\IM144.tif" />
+    <Content Include="Resources\Images\color\IM145.tif" />
+    <Content Include="Resources\Images\color\IM146.tif" />
+    <Content Include="Resources\Images\color\IM147.tif" />
+    <Content Include="Resources\Images\color\IM148.tif" />
+    <Content Include="Resources\Images\color\IM149.tif" />
+    <Content Include="Resources\Images\color\IM150.tif" />
+    <Content Include="Resources\Images\gray\IM001.tif" />
+    <Content Include="Resources\Images\gray\IM002.tif" />
+    <Content Include="Resources\Images\gray\IM003.tif" />
+    <Content Include="Resources\Images\gray\IM004.tif" />
+    <Content Include="Resources\Images\gray\IM005.tif" />
+    <Content Include="Resources\Images\gray\IM006.tif" />
+    <Content Include="Resources\Images\gray\IM007.tif" />
+    <Content Include="Resources\Images\gray\IM008.tif" />
+    <Content Include="Resources\Images\gray\IM009.tif" />
+    <Content Include="Resources\Images\gray\IM010.tif" />
+    <Content Include="Resources\Images\gray\IM011.tif" />
+    <Content Include="Resources\Images\gray\IM012.tif" />
+    <Content Include="Resources\Images\gray\IM013.tif" />
+    <Content Include="Resources\Images\gray\IM014.tif" />
+    <Content Include="Resources\Images\gray\IM015.tif" />
+    <Content Include="Resources\Images\gray\IM016.tif" />
+    <Content Include="Resources\Images\gray\IM017.tif" />
+    <Content Include="Resources\Images\gray\IM018.tif" />
+    <Content Include="Resources\Images\gray\IM019.tif" />
+    <Content Include="Resources\Images\gray\IM020.tif" />
+    <Content Include="Resources\Images\gray\IM021.tif" />
+    <Content Include="Resources\Images\gray\IM022.tif" />
+    <Content Include="Resources\Images\gray\IM023.tif" />
+    <Content Include="Resources\Images\gray\IM024.tif" />
+    <Content Include="Resources\Images\gray\IM025.tif" />
+    <Content Include="Resources\Images\gray\IM026.tif" />
+    <Content Include="Resources\Images\gray\IM027.tif" />
+    <Content Include="Resources\Images\gray\IM028.tif" />
+    <Content Include="Resources\Images\gray\IM029.tif" />
+    <Content Include="Resources\Images\gray\IM030.tif" />
+    <Content Include="Resources\Images\gray\IM031.tif" />
+    <Content Include="Resources\Images\gray\IM032.tif" />
+    <Content Include="Resources\Images\gray\IM033.tif" />
+    <Content Include="Resources\Images\gray\IM034.tif" />
+    <Content Include="Resources\Images\gray\IM035.tif" />
+    <Content Include="Resources\Images\gray\IM036.tif" />
+    <Content Include="Resources\Images\gray\IM037.tif" />
+    <Content Include="Resources\Images\gray\IM038.tif" />
+    <Content Include="Resources\Images\gray\IM039.tif" />
+    <Content Include="Resources\Images\gray\IM040.tif" />
+    <Content Include="Resources\Images\gray\IM041.tif" />
+    <Content Include="Resources\Images\gray\IM042.tif" />
+    <Content Include="Resources\Images\gray\IM043.tif" />
+    <Content Include="Resources\Images\gray\IM044.tif" />
+    <Content Include="Resources\Images\gray\IM045.tif" />
+    <Content Include="Resources\Images\gray\IM046.tif" />
+    <Content Include="Resources\Images\gray\IM047.tif" />
+    <Content Include="Resources\Images\gray\IM048.tif" />
+    <Content Include="Resources\Images\gray\IM049.tif" />
+    <Content Include="Resources\Images\gray\IM050.tif" />
+    <Content Include="Resources\Images\gray\IM051.tif" />
+    <Content Include="Resources\Images\gray\IM052.tif" />
+    <Content Include="Resources\Images\gray\IM053.tif" />
+    <Content Include="Resources\Images\gray\IM054.tif" />
+    <Content Include="Resources\Images\gray\IM055.tif" />
+    <Content Include="Resources\Images\gray\IM056.tif" />
+    <Content Include="Resources\Images\gray\IM057.tif" />
+    <Content Include="Resources\Images\gray\IM058.tif" />
+    <Content Include="Resources\Images\gray\IM059.tif" />
+    <Content Include="Resources\Images\gray\IM060.tif" />
+    <Content Include="Resources\Images\gray\IM061.tif" />
+    <Content Include="Resources\Images\gray\IM062.tif" />
+    <Content Include="Resources\Images\gray\IM063.tif" />
+    <Content Include="Resources\Images\gray\IM064.tif" />
+    <Content Include="Resources\Images\gray\IM065.tif" />
+    <Content Include="Resources\Images\gray\IM066.tif" />
+    <Content Include="Resources\Images\gray\IM067.tif" />
+    <Content Include="Resources\Images\gray\IM068.tif" />
+    <Content Include="Resources\Images\gray\IM069.tif" />
+    <Content Include="Resources\Images\gray\IM070.tif" />
+    <Content Include="Resources\Images\gray\IM071.tif" />
+    <Content Include="Resources\Images\gray\IM072.tif" />
+    <Content Include="Resources\Images\gray\IM073.tif" />
+    <Content Include="Resources\Images\gray\IM074.tif" />
+    <Content Include="Resources\Images\gray\IM075.tif" />
+    <Content Include="Resources\Images\gray\IM076.tif" />
+    <Content Include="Resources\Images\gray\IM077.tif" />
+    <Content Include="Resources\Images\gray\IM078.tif" />
+    <Content Include="Resources\Images\gray\IM079.tif" />
+    <Content Include="Resources\Images\gray\IM080.tif" />
+    <Content Include="Resources\Images\gray\IM081.tif" />
+    <Content Include="Resources\Images\gray\IM082.tif" />
+    <Content Include="Resources\Images\gray\IM083.tif" />
+    <Content Include="Resources\Images\gray\IM084.tif" />
+    <Content Include="Resources\Images\gray\IM085.tif" />
+    <Content Include="Resources\Images\gray\IM086.tif" />
+    <Content Include="Resources\Images\gray\IM087.tif" />
+    <Content Include="Resources\Images\gray\IM088.tif" />
+    <Content Include="Resources\Images\gray\IM089.tif" />
+    <Content Include="Resources\Images\gray\IM090.tif" />
+    <Content Include="Resources\Images\gray\IM091.tif" />
+    <Content Include="Resources\Images\gray\IM092.tif" />
+    <Content Include="Resources\Images\gray\IM093.tif" />
+    <Content Include="Resources\Images\gray\IM094.tif" />
+    <Content Include="Resources\Images\gray\IM095.tif" />
+    <Content Include="Resources\Images\gray\IM096.tif" />
+    <Content Include="Resources\Images\gray\IM097.tif" />
+    <Content Include="Resources\Images\gray\IM098.tif" />
+    <Content Include="Resources\Images\gray\IM099.tif" />
+    <Content Include="Resources\Images\gray\IM100.tif" />
+    <Content Include="Resources\Images\gray\IM101.tif" />
+    <Content Include="Resources\Images\gray\IM102.tif" />
+    <Content Include="Resources\Images\gray\IM103.tif" />
+    <Content Include="Resources\Images\gray\IM104.tif" />
+    <Content Include="Resources\Images\gray\IM105.tif" />
+    <Content Include="Resources\Images\gray\IM106.tif" />
+    <Content Include="Resources\Images\gray\IM107.tif" />
+    <Content Include="Resources\Images\gray\IM108.tif" />
+    <Content Include="Resources\Images\gray\IM109.tif" />
+    <Content Include="Resources\Images\gray\IM110.tif" />
+    <Content Include="Resources\Images\gray\IM111.tif" />
+    <Content Include="Resources\Images\gray\IM112.tif" />
+    <Content Include="Resources\Images\gray\IM113.tif" />
+    <Content Include="Resources\Images\gray\IM114.tif" />
+    <Content Include="Resources\Images\gray\IM115.tif" />
+    <Content Include="Resources\Images\gray\IM116.tif" />
+    <Content Include="Resources\Images\gray\IM117.tif" />
+    <Content Include="Resources\Images\gray\IM118.tif" />
+    <Content Include="Resources\Images\gray\IM119.tif" />
+    <Content Include="Resources\Images\gray\IM120.tif" />
+    <Content Include="Resources\Images\gray\IM121.tif" />
+    <Content Include="Resources\Images\gray\IM122.tif" />
+    <Content Include="Resources\Images\gray\IM123.tif" />
+    <Content Include="Resources\Images\gray\IM124.tif" />
+    <Content Include="Resources\Images\gray\IM125.tif" />
+    <Content Include="Resources\Images\gray\IM126.tif" />
+    <Content Include="Resources\Images\gray\IM127.tif" />
+    <Content Include="Resources\Images\gray\IM128.tif" />
+    <Content Include="Resources\Images\gray\IM129.tif" />
+    <Content Include="Resources\Images\gray\IM130.tif" />
+    <Content Include="Resources\Images\gray\IM131.tif" />
+    <Content Include="Resources\Images\gray\IM132.tif" />
+    <Content Include="Resources\Images\gray\IM133.tif" />
+    <Content Include="Resources\Images\gray\IM134.tif" />
+    <Content Include="Resources\Images\gray\IM135.tif" />
+    <Content Include="Resources\Images\gray\IM136.tif" />
+    <Content Include="Resources\Images\gray\IM137.tif" />
+    <Content Include="Resources\Images\gray\IM138.tif" />
+    <Content Include="Resources\Images\gray\IM139.tif" />
+    <Content Include="Resources\Images\gray\IM140.tif" />
+    <Content Include="Resources\Images\gray\IM141.tif" />
+    <Content Include="Resources\Images\gray\IM142.tif" />
+    <Content Include="Resources\Images\gray\IM143.tif" />
+    <Content Include="Resources\Images\gray\IM144.tif" />
+    <Content Include="Resources\Images\gray\IM145.tif" />
+    <Content Include="Resources\Images\gray\IM146.tif" />
+    <Content Include="Resources\Images\gray\IM147.tif" />
+    <Content Include="Resources\Images\gray\IM148.tif" />
+    <Content Include="Resources\Images\gray\IM149.tif" />
+    <Content Include="Resources\Images\gray\IM150.tif" />
+    <Content Include="Resources\Images\README.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(ProjectDir)Resources\Images\color" "$(TargetDir)\Resources\Images\Color" /E /I /F /Y /D
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

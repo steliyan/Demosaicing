@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{864D5FEA-E114-4D58-804F-F03FA35EF8BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImageEditing</RootNamespace>
+    <AssemblyName>ImageEditing</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClasses\BayerColor.cs" />
+    <Compile Include="BaseClasses\ColorNeighbour.cs" />
+    <Compile Include="BaseClasses\DeltaPair.cs" />
+    <Compile Include="BaseInterfaces\IRandomBayerPattern.cs" />
+    <Compile Include="BaseInterfaces\IProperBayerPattern.cs" />
+    <Compile Include="BaseInterfaces\IBayerPattern.cs" />
+    <Compile Include="BaseInterfaces\IDemosaicer.cs" />
+    <Compile Include="BaseInterfaces\IDemosaicable.cs" />
+    <Compile Include="Exceptions\InvalidPixelFormatException.cs" />
+    <Compile Include="BaseClasses\BaseFilter.cs" />
+    <Compile Include="BaseInterfaces\IFilter.cs" />
+    <Compile Include="BaseInterfaces\IFilterInformation.cs" />
+    <Compile Include="BaseClasses\RGB.cs" />
+    <Compile Include="BaseClasses\UnsafeImage.cs" />
+    <Compile Include="Filters\Bayer\Bayer6X6Filter.cs" />
+    <Compile Include="Filters\Demosaicers\BillinearDemosaicing.cs" />
+    <Compile Include="Filters\Demosaicers\CubicDemosaicing.cs" />
+    <Compile Include="Filters\Demosaicers\PixelDoublingDemosaicing.cs" />
+    <Compile Include="Filters\Demosaicers\NewEdgeDemosaicing.cs" />
+    <Compile Include="Filters\Demosaicers\EdgeDemosaicing.cs" />
+    <Compile Include="Filters\Demosaicers\LinearDemosaicing.cs" />
+    <Compile Include="Filters\Other\BayerImage.cs" />
+    <Compile Include="Filters\Other\ExtractColorChannelsFilter.cs" />
+    <Compile Include="HelperClasses\BayerPatternConstants.cs" />
+    <Compile Include="BaseClasses\BaseProperBayerPattern.cs" />
+    <Compile Include="Patterns\BggrBayerPattern.cs" />
+    <Compile Include="Patterns\YamanakaBayerPattern.cs" />
+    <Compile Include="Patterns\GbbrBayerPattern.cs" />
+    <Compile Include="Patterns\GrrbBayerPattern.cs" />
+    <Compile Include="Patterns\GbrgBayerPattern.cs" />
+    <Compile Include="Patterns\GrbgBayerPattern.cs" />
+    <Compile Include="Patterns\FujiBayerPattern.cs" />
+    <Compile Include="Patterns\RggbBayerPattern.cs" />
+    <Compile Include="RandomPatterns\TwoColorRandomBayerRandom.cs" />
+    <Compile Include="RandomPatterns\CustomRandomBayerPattern.cs" />
+    <Compile Include="RandomPatterns\NaiveRandomBayerPattern.cs" />
+    <Compile Include="Filters\Other\ExtractColorChannelFilter.cs" />
+    <Compile Include="Filters\Grayscale\GrayscaleRandomBayerFilter.cs" />
+    <Compile Include="Filters\Bayer\RandomBayerFilter.cs" />
+    <Compile Include="Filters\Demosaicers\MhcDemosaicing.cs" />
+    <Compile Include="Filters\Grayscale\GrayscaleBayer6X6Filter.cs" />
+    <Compile Include="Filters\Grayscale\GrayscaleBayerFilter.cs" />
+    <Compile Include="Filters\Other\SobelFilter.cs" />
+    <Compile Include="HelperClasses\BitmapHelpers.cs" />
+    <Compile Include="Filters\Bayer\BayerFilter.cs" />
+    <Compile Include="Filters\Grayscale\GrayscaleFilter.cs" />
+    <Compile Include="Exceptions\InvalidImageException.cs" />
+    <Compile Include="HelperClasses\CommonHelpers.cs" />
+    <Compile Include="HelperClasses\PatternConstants.cs" />
+    <Compile Include="HelperClasses\PixelFormatHelpers.cs" />
+    <Compile Include="RandomPatterns\TilingRandomBayerPattern.cs" />
+    <Compile Include="MemoryTools.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ImageMetrics.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
